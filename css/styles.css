@@ -47,14 +47,26 @@ body {
   height: 44px; }
 
 .checker-false{
-    font-size: 0;
-    position: absolute;}
+  font-size: 0;
+  color: #ffab00;
+  position: absolute;}
 
 .checked-book{
-  font-size: 50px;
-  color: #ffab00;
-  margin-left: 140px;
-  position: absolute;}
+  animation-name: anim-checker;
+  animation-duration: 0.1s;
+  font-size: 70px;
+  margin-left: 130px;}
+
+@keyframes anim-checker {
+    from {
+        font-size: 100px;
+        margin-left: 100px;
+    }
+    to {
+        font-size: 70px;
+        margin-left: 130px;
+    }
+}
 
 .div-dot-6 {
   border-radius: 50%;
