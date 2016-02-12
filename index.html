@@ -8,8 +8,8 @@
     <title>MyBookApp</title>
 </head>
 
-<body>
-    <div class="header-block">
+<body ng-app="app">
+    <div ng-controller="UsersController" class="header-block">
         <div class="header-block-left">
             <div class="header-dot dot-close"></div>
             <div class="header-dot dot-extend"></div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="btn-group dropdown header-block-right">
-            <a class="btn header-user-btn" href="#"><img class="header-user-avatar" src="img/avatar-01.png">John Doe</a>
+            <a class="btn header-user-btn" href="#"><img class="header-user-avatar" ng-src="{{activeUser().usrImg}}">{{activeUser().usrFirstName}} {{activeUser().usrLastName}}</a>
             <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" href="#"><span class="fa fa-chevron-circle-down user-chevron-down"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit profile</a></li>
@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <div ng-app="app" class="main-table">
+    <div class="main-table">
         <div class="main-table table-title">
             <p class="table-title-p">Browse Available Books</p>
         </div>

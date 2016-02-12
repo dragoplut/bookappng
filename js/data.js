@@ -100,6 +100,7 @@ var DataModule = (function(){
             usrID: 100001,
             usrFirstName: 'John',
             usrLastName: 'Doe',
+            usrImg: 'img/avatar-01.png',
             usrReading: [],
             usrPurchase: [],
             usrFavourite: [],
@@ -109,6 +110,7 @@ var DataModule = (function(){
             usrID: 100002,
             usrFirstName: 'David',
             usrLastName: 'Bowe',
+            usrImg: 'img/avatar-02.png',
             usrReading: [],
             usrPurchase: [],
             usrFavourite: [],
@@ -119,8 +121,14 @@ var DataModule = (function(){
     function getBooks(){
         return books;
     }
-    function getUsers(){
-        return users;
+    function getUsers(activeID){
+        var oneUser = [];
+        for (var i = 0; i < users.length; i++){
+            if (users[i].usrID === activeID){
+                oneUser.push(users[i])
+            }
+        }
+        return oneUser;
     }
     function setBooks(data){
         for (var i = 0; i < data.length; i++){
