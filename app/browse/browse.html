@@ -1,0 +1,32 @@
+<div class="main-table">
+    <div class="main-table table-title">
+        <p class="table-title-p">Browse Available Books</p>
+    </div>
+    <div class="main-table table-menu-bar">
+        <ul class="list-inline table-top-menu">
+            <li class="list-inline-menu-bar"><div class="table-menu-btn-round btn-all-bo"><a class="list-inline-menu-a" href="#" ng-click="newOrder=''">All Books</a></div></li>
+            <li class="list-inline-menu-bar"><div class="table-menu-btn-round btn-most-re"><a class="list-inline-menu-a" href="#" ng-click="newOrder='date'">Most Recent</a></div></li>
+            <li class="list-inline-menu-bar"><div class="table-menu-btn-round btn-most-po"><a class="list-inline-menu-a" href="#" ng-click="newOrder='rating'">Most Popular</a></div></li>
+            <li class="list-inline-menu-bar"><div class="table-menu-btn-round btn-free-bo"><a class="list-inline-menu-a" href="#" ng-click="query='book for free'">Free Books</a></div></li>
+        </ul>
+        <div class="input-search-div">
+            <input ng-model="query" class="input-search-books" type="search" placeholder="Enter Keywords">
+            <i class="fa fa-search fa-fw input-search-fa-icon"></i>
+        </div>
+    </div>
+
+    <div class="main-book-list">
+        <div ng-repeat="book in browse.books | filter:query | orderBy:newOrder:true" class="book-list">
+                    <span class="checker-false {{bookChecker}}">
+                        <i class="fa fa-check-circle-o"></i>
+                    </span>
+            <img class="bookCover" ng-src="{{book.cover}}" ng-click="bookChecker ? bookChecker='' : bookChecker='checked-book'">
+            <a class="book-list-title" href="#">{{book.title}}</a>
+            <a class="book-list-author" href="#">by {{book.author}} {{bkCount}}</a>
+                    <span class="star-orange">
+                        <i ng-repeat="rating in ((rating = []) && (rating.length=book.rating) && rating) track by $index" class="fa fa-star stars{{$index}}"></i>
+                    </span>
+        </div>
+    </div>
+
+</div>
